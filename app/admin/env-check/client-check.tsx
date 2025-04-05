@@ -2,8 +2,39 @@
 
 import { useState } from "react"
 
+// Define a proper type for the connection status
+type ConnectionStatus = {
+  database?: {
+    success: boolean
+    message: string
+    details?: string
+    error?: string
+  }
+  email?: {
+    success: boolean
+    message: string
+    details?: string
+    error?: string
+  }
+  storage?: {
+    success: boolean
+    message: string
+    details?: string
+    error?: string
+  }
+  auth?: {
+    success: boolean
+    message: string
+    details?: string
+    error?: string
+  }
+  error?: boolean
+  message?: string
+  timestamp?: string
+} | null
+
 export default function ClientEnvCheck() {
-  const [connectionStatus, setConnectionStatus] = useState<any>(null)
+  const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>(null)
   const [loading, setLoading] = useState(false)
 
   const testConnections = async () => {
@@ -76,5 +107,4 @@ export default function ClientEnvCheck() {
     </div>
   )
 }
-
 
