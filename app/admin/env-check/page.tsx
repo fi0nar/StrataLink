@@ -19,7 +19,8 @@ export default async function EnvCheckPage() {
   }
 
   // Get the host from headers to display the current environment
-  const headersList = headers()
+  // In Next.js 15.2.4, headers() returns a Promise that needs to be awaited
+  const headersList = await headers()
   const host = headersList.get("host") || "unknown"
 
   // Check all the environment variables we set up
@@ -168,5 +169,4 @@ export default async function EnvCheckPage() {
     </div>
   )
 }
-
 
