@@ -1,12 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "./ui/button"
 import { ModeToggle } from "./mode-toggle"
 import { useState } from "react"
 import { Menu, X, User, Bell } from "lucide-react"
 import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils"
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
