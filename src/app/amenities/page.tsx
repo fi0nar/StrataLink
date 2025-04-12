@@ -259,106 +259,70 @@ export default function AmenitiesPage() {
         </TabsContent>
 
         <TabsContent value="calendar">
-          <Card>
-            <CardHeader>
-              <CardTitle>Amenity Booking Calendar</CardTitle>
-              <CardDescription>View availability and make reservations for building amenities.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="md:w-1/2">
-                  <Calendar mode="single" selected={date} onSelect={setDate} className="border rounded-md p-3" />
-                </div>
-
-                <div className="md:w-1/2 border rounded-md p-4">
-                  <h3 className="font-medium mb-4">
-                    Bookings for {date?.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}
-                  </h3>
-
-                  <div className="space-y-3">
-                    <div className="p-3 border rounded-md bg-secondary/50">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <p className="font-medium">Party Room</p>
-                          <p className="text-sm text-muted-foreground">7:00 PM - 10:00 PM</p>
-                        </div>
-                        <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Booked</span>
-                      </div>
-                      <p className="text-sm mt-1">Booked by: Unit 502</p>
-                    </div>
-
-                    <div className="p-3 border rounded-md bg-secondary/50">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <p className="font-medium">Rooftop Terrace</p>
-                          <p className="text-sm text-muted-foreground">12:00 PM - 3:00 PM</p>
-                        </div>
-                        <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Booked</span>
-                      </div>
-                      <p className="text-sm mt-1">Booked by: Unit 301</p>
-                    </div>
-
-                    <div className="p-3 border rounded-md">
-                      <p className="text-center text-muted-foreground">
-                        All other amenities are available for booking.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold">Booking Calendar</h2>
+                <p className="text-muted-foreground">View availability and manage your bookings</p>
               </div>
-            </CardContent>
-          </Card>
+              <Select>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Select amenity" />
+                </SelectTrigger>
+                <SelectContent>
+                  {amenities.map((amenity) => (
+                    <SelectItem key={amenity.id} value={amenity.id}>
+                      {amenity.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Amenity Rules</CardTitle>
-                <CardDescription>Important guidelines for using building amenities</CardDescription>
+                <div className="flex items-center justify-between">
+                  <CardTitle>Calendar View</CardTitle>
+                  <div className="space-x-2">
+                    <Button variant="outline" size="sm">Today</Button>
+                    <Button variant="outline" size="sm">←</Button>
+                    <Button variant="outline" size="sm">→</Button>
+                  </div>
+                </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm list-disc pl-5">
-                  <li>Bookings can be made up to 60 days in advance</li>
-                  <li>Residents are responsible for cleaning after use</li>
-                  <li>Noise levels must be kept reasonable after 10:00 PM</li>
-                  <li>Damage to amenities will result in repair charges</li>
-                  <li>Guests must be accompanied by residents at all times</li>
-                  <li>Cancellations must be made at least 24 hours in advance</li>
-                  <li>Maximum booking duration is 4 hours per amenity</li>
-                </ul>
+                <Calendar
+                  mode="single"
+                  selected={date}
+                  onSelect={setDate}
+                  className="rounded-md border"
+                />
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle>My Bookings</CardTitle>
-                <CardDescription>Your upcoming amenity reservations</CardDescription>
+                <CardTitle>Upcoming Bookings</CardTitle>
+                <CardDescription>Your scheduled amenity bookings</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
-                  <div className="p-3 border rounded-md">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <p className="font-medium">Party Room</p>
-                        <p className="text-sm">May 28, 2024</p>
-                        <p className="text-sm text-muted-foreground">7:00 PM - 10:00 PM</p>
-                      </div>
-                      <Button variant="outline" size="sm">
-                        Cancel
-                      </Button>
+                <div className="space-y-4">
+                  {/* Example bookings - replace with actual data */}
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div>
+                      <h3 className="font-medium">Party Room</h3>
+                      <p className="text-sm text-muted-foreground">July 15, 2024</p>
+                      <p className="text-sm text-muted-foreground">7:00 PM - 10:00 PM</p>
                     </div>
+                    <Button variant="outline" size="sm">Cancel</Button>
                   </div>
-
-                  <div className="p-3 border rounded-md">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <p className="font-medium">Rooftop Terrace</p>
-                        <p className="text-sm">June 15, 2024</p>
-                        <p className="text-sm text-muted-foreground">4:00 PM - 8:00 PM</p>
-                      </div>
-                      <Button variant="outline" size="sm">
-                        Cancel
-                      </Button>
+                  <div className="flex items-center justify-between p-4 border rounded-lg">
+                    <div>
+                      <h3 className="font-medium">Rooftop Terrace</h3>
+                      <p className="text-sm text-muted-foreground">July 20, 2024</p>
+                      <p className="text-sm text-muted-foreground">3:00 PM - 6:00 PM</p>
                     </div>
+                    <Button variant="outline" size="sm">Cancel</Button>
                   </div>
                 </div>
               </CardContent>
