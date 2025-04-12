@@ -20,35 +20,35 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "hsl(220, 40%, 10%)", // Dark navy blue
+        foreground: "hsl(0, 0%, 98%)", // Almost white for text
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "hsl(200, 85%, 70%)", // Light blue
+          foreground: "hsl(220, 40%, 10%)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "hsl(220, 35%, 15%)", // Slightly lighter navy
+          foreground: "hsl(0, 0%, 98%)",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "hsl(0, 84.2%, 60.2%)",
+          foreground: "hsl(0, 0%, 98%)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "hsl(220, 35%, 15%)",
+          foreground: "hsl(0, 0%, 80%)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "hsl(200, 85%, 70%)", // Light blue
+          foreground: "hsl(220, 40%, 10%)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "hsl(220, 40%, 10%)",
+          foreground: "hsl(0, 0%, 98%)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "hsl(220, 35%, 15%)",
+          foreground: "hsl(0, 0%, 98%)",
         },
       },
       borderRadius: {
