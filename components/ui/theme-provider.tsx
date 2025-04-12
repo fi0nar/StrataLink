@@ -3,11 +3,11 @@
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 
-type Attribute = "class" | "data-theme" | "media"
+type Attribute = "class" | "data-theme"
 
 interface ThemeProviderProps {
   children: React.ReactNode
-  attribute?: Attribute | Attribute[]
+  attribute?: Attribute
   defaultTheme?: string
   enableSystem?: boolean
   storageKey?: string
