@@ -99,7 +99,7 @@ export async function bookAmenity(formData: FormData) {
   }
 }
 
-export async function login(formData: FormData) {
+export async function login(formData: FormData): Promise<void> {
   const supabase = createClient()
 
   const email = formData.get("email") as string
@@ -111,12 +111,14 @@ export async function login(formData: FormData) {
       password,
     })
 
-    if (error) throw error
+    if (error) {
+      throw error
+    }
 
     redirect("/dashboard")
   } catch (error) {
     console.error("Error logging in:", error)
-    return { success: false, error: "Invalid email or password" }
+    redirect("/login?error=Invalid email or password")
   }
 }
 
